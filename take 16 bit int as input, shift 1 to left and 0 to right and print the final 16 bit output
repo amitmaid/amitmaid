@@ -1,0 +1,50 @@
+
+#include <stdio.h>
+
+int
+main ()
+{
+  printf ("Hello World");
+  int num;
+  unsigned int last_num = 0;
+  int arr[16];
+  int temp_arr[16];
+  int i, j;
+  int count = 0;
+
+  scanf ("%d", &num);
+  for (i = 0; i < 16; i++)
+    {
+      if ((num & 0x01) == 1)
+	{
+	  count++;
+	  printf ("1");
+	}
+      else
+	{
+	  printf ("0");
+	}
+      num >>= 1;
+    }
+  printf ("\ncount %d\n", count);
+
+  for (i = 0; i < 16; i++)
+    {
+      if (i < count)
+	{
+	  last_num = (last_num) | (1<<i+count);
+	  temp_arr[i] = 1;
+	}
+      else
+	{
+	  temp_arr[i] = 0;
+	}
+
+      printf ("%d", temp_arr[i]);
+
+    }
+
+
+  printf ("\n%d", last_num);
+  return 0;
+}
